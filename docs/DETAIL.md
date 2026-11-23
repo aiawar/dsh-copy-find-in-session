@@ -1,4 +1,4 @@
-# Find in session
+# DSH Find in session
 
 Ctrl+F opens a small search bar for the current session. Every hit in the transcript is highlighted; the current hit is a stronger orange and is scrolled to the middle of the view. Enter / Shift+Enter step through hits, `Aa` toggles case sensitivity, `Esc` closes the bar.
 

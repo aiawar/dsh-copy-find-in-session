@@ -1,3 +1,3 @@
 - insert:
-    - id: find-in-session
-      name: '@local/find-in-session'
+    - id: dsh-find-in-session
+      name: '@local/dsh-find-in-session'

@@ -1,4 +1,4 @@
-# Find in session — DSH plugin
+# DSH Find in session
 
 Ctrl+F search inside a DeepSeek Harness (DSH) session transcript. Hits are highlighted in place, stepping jumps to the nearest match, and the transcript stays natively selectable so you can drag-select and Ctrl+C as usual.
 
@@ -25,7 +25,7 @@ Inside the bar: `Enter` / `Shift+Enter` step through hits, `Aa` toggles case sen
 ## Install
 
 ```bash
-dsh plugin install /absolute/path/to/find-in-session
+dsh plugin install /absolute/path/to/dsh-find-in-session
 ```
 
 Or point the profile at it directly — this is a local bundle, so `link:` install is enough and source edits reload on enable/disable:
@@ -33,8 +33,8 @@ Or point the profile at it directly — this is a local bundle, so `link:` insta
 ```jsonc
 // ~/.dsh/profiles/<profile>/package.json
 {
-  "dsh": { "profile": { "bundles": ["@local/find-in-session"] } },
-  "dependencies": { "@local/find-in-session": "link:/absolute/path/to/find-in-session" }
+  "dsh": { "profile": { "bundles": ["@local/dsh-find-in-session"] } },
+  "dependencies": { "@local/dsh-find-in-session": "link:/absolute/path/to/dsh-find-in-session" }
 }
 ```
 
@@ -43,7 +43,7 @@ Then toggle the plugin off and on in Plugins to reload the client half.
 ## Layout
 
 ```
-find-in-session/
+dsh-find-in-session/
   package.json          dsh.bundle.patch + dsh.client metadata
   cordis.patch.yml      inserts the plugin entry into the bundle
   index.js              host half (empty apply)
