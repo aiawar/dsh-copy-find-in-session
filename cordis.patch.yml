@@ -1,0 +1,3 @@
+- insert:
+    - id: find-in-session
+      name: '@local/find-in-session'

@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "会话内查找",
+    "description": "Ctrl+F 在当前会话正文里查找，跳到最近的命中并高亮全部匹配；正文保持原生可选中，可直接 Ctrl+C 复制。",
+    "detail": "docs/DETAIL.md"
+  }
+}
