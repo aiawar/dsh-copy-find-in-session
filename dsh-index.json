@@ -71,14 +71,11 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1795398000,
+          "publishTimestamp": 1795398900,
           "source": {
             "type": "git",
             "url": "https://github.com/aiawar/dsh-find-in-session",
-            "commit": "fef3337b8edd94edce5ccdcb7d770d9c0aa6bf51"
-          },
-          "engines": {
-            "dsh": ">=0.1.7-rc.1"
+            "commit": "522a148a1ff0538530c6114967babe7fb8f878c6"
           }
         }
       ]
