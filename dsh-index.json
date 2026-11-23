@@ -76,7 +76,7 @@
           "source": {
             "type": "git",
             "url": "https://github.com/aiawar/dsh-copy-find-in-session",
-            "commit": "81948eb6b9b7481103cfd1e094b3e56edc705702"
+            "commit": "cd2fb83fc8b9ecd0b092291f3c0245c273b84647"
           }
         }
       ]
