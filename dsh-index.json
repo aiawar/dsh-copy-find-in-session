@@ -1,0 +1,87 @@
+{
+  "format": 1,
+  "title": {
+    "en": "DSH Find in Session",
+    "zh": "DSH 会话内查找"
+  },
+  "description": {
+    "en": "Index source for the dsh-find-in-session plugin.",
+    "zh": "dsh-find-in-session 插件的索引源。"
+  },
+  "metadata": {
+    "categories": {
+      "ui": {
+        "title": {
+          "en": "UI Enhancements",
+          "zh": "UI 增强"
+        }
+      },
+      "session": {
+        "title": {
+          "en": "Sessions & Messages",
+          "zh": "会话与消息"
+        }
+      }
+    },
+    "labels": {},
+    "sortKeys": {
+      "added": {
+        "title": {
+          "en": "Recently added",
+          "zh": "最近收录"
+        },
+        "order": "desc"
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-find-in-session",
+      "title": {
+        "en": "Find in Session",
+        "zh": "会话内查找"
+      },
+      "description": {
+        "en": "Ctrl+F find bar over a DSH conversation transcript: nearest-first hit ordering, jump to each match with scroll hold, per-session isolation, natively selectable message text.",
+        "zh": "DSH 会话内的 Ctrl+F 查找条：命中按距离最近优先、逐个跳转并保持滚动位置、按会话隔离、消息正文可原生选中复制。"
+      },
+      "author": "aiawar",
+      "homepage": "https://github.com/aiawar/dsh-find-in-session",
+      "repository": {
+        "url": "https://github.com/aiawar/dsh-find-in-session"
+      },
+      "icon": "https://cdn.jsdelivr.net/gh/aiawar/dsh-find-in-session@main/icon.svg",
+      "metadata": {
+        "category": "session",
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "find",
+          "search",
+          "ctrl-f",
+          "transcript",
+          "session"
+        ],
+        "labels": [],
+        "sortKeys": {
+          "added": 1795400106
+        }
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1795398000,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/aiawar/dsh-find-in-session",
+            "commit": "fef3337b8edd94edce5ccdcb7d770d9c0aa6bf51"
+          },
+          "engines": {
+            "dsh": ">=0.1.7-rc.1"
+          }
+        }
+      ]
+    }
+  ]
+}
