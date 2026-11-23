@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "DSH Find in session",
-    "description": "Ctrl+F searches the current session transcript, jumps to the nearest hit, and highlights every match; the transcript stays natively selectable for Ctrl+C.",
+    "title": "DSH Find in session · DSH 会话内查找",
+    "description": "Ctrl+F searches the current session transcript, jumps to the nearest hit, and highlights every match; the transcript stays natively selectable for Ctrl+C. Ctrl+F 在当前会话正文里查找：高亮每一处命中、跳到最近的一处，正文保持原生可选中，可直接 Ctrl+C 复制。",
     "detail": "docs/DETAIL.en.md"
   }
 }
