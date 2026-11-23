@@ -41,6 +41,26 @@ Or point the profile at it directly — this is a local bundle, so `link:` insta
 
 Then toggle the plugin off and on in Plugins to reload the client half.
 
+## Market index
+
+This repo ships its own `dsh-index.json`, a `format: 1` market index that any DSH profile can subscribe to:
+
+```yaml
+# cordis.patch.yml
+- id: plugin-market
+  name: "@deepseek-ai/dsh-plugin-market"
+  config:
+    indexes:
+      - https://cdn.jsdelivr.net/gh/aiawar/dsh-find-in-session@v1.0.0/dsh-index.json
+```
+
+Pinned to the `v1.0.0` tag on purpose: `@main` is served from a CDN cache and can lag a push. The index declares one plugin, `dsh-find-in-session`, version `1.0.0`, as a `git` source pinned to a commit, so Discover lists it and installs straight from the repository. Bump `versions[0].source.commit` to the new HEAD whenever the code changes — a stale commit installs stale code.
+
+Also listed in the two community directories:
+
+- [1024Store](https://github.com/imsai-sh/awesome-deepseek-harness-plugins) — `catalog/plugins/aiawar--dsh-find-in-session.json`
+- [awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) — `data/plugins/aiawar__dsh-find-in-session.yml`
+
 ## Layout
 
 ```
@@ -50,6 +70,7 @@ dsh-find-in-session/
   index.js              host half (empty apply)
   client.js             the whole UI: search, highlight, jump, palette, styles
   icon.svg              plugin icon
+  dsh-index.json        format-1 market index for this plugin
   locale/en.json        title, description, detail path (English page)
   locale/zh.json        same keys in Chinese
   docs/DETAIL.md        behaviour reference, Chinese first
