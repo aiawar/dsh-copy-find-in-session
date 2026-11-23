@@ -11,6 +11,7 @@ Ctrl+F search inside a DeepSeek Harness (DSH) session transcript. Hits are highl
 - **Per-session isolation**: switching sessions clears the query, the hits, and the highlights. A search never leaks into another conversation.
 - **Native copy**: no copy button, no custom shortcut. `user-select: text` is opened up on the flow column, so you can select across message bodies, code blocks, and tool output and press Ctrl+C.
 - **Anchored to the composer**: the bar clears the composer card's right edge by 80px and keeps a constant 6px gap above it, following the card as the draft grows it taller.
+- **Bilingual**: `locale/zh.json` and `locale/en.json` each point `meta.detail` at their own document, and both documents carry the full Chinese and English text — the Chinese half first under one language, the English half first under the other, so the long description always shows both.
 
 ## Keys
 
@@ -49,9 +50,10 @@ dsh-find-in-session/
   index.js              host half (empty apply)
   client.js             the whole UI: search, highlight, jump, palette, styles
   icon.svg              plugin icon
-  locale/en.json        title + description
-  locale/zh.json
-  docs/DETAIL.md        behaviour reference
+  locale/en.json        title, description, detail path (English page)
+  locale/zh.json        same keys in Chinese
+  docs/DETAIL.md        behaviour reference, Chinese first
+  docs/DETAIL.en.md     same reference, English first
   test/smoke.mjs        factory wiring, shortcut bindings, style injection
   test/search.mjs       search/jump/ranking/anchor behaviour against a stub DOM
 ```
@@ -75,7 +77,7 @@ Text the session never rendered — a collapsed tool result never expanded, a vi
 
 Stepping centres a hit by setting the scroll container's own `scrollTop`, not by relying on `scrollIntoView`: the chat pins itself to the tail while streaming, so the jump re-asserts the target top each frame until the tail follower releases (`[data-chat-following-tail]` disappears) or 20 frames pass.
 
-See [docs/DETAIL.md](docs/DETAIL.md) for the full behaviour reference.
+See [docs/DETAIL.md](docs/DETAIL.md) (Chinese first) or [docs/DETAIL.en.md](docs/DETAIL.en.md) (English first) for the full behaviour reference.
 
 ## Compatibility
 

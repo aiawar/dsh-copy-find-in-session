@@ -2,6 +2,6 @@
   "meta": {
     "title": "DSH Find in session",
     "description": "Ctrl+F searches the current session transcript, jumps to the nearest hit, and highlights every match; the transcript stays natively selectable for Ctrl+C.",
-    "detail": "docs/DETAIL.md"
+    "detail": "docs/DETAIL.en.md"
   }
 }

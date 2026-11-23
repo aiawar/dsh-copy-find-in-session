@@ -1,3 +1,45 @@
+# DSH 会话内查找
+
+按 `Ctrl+F` 在当前会话里打开一条小搜索条。正文中每一处命中都会高亮，当前命中用更深的橙色标出并滚动到视图中央。`Enter` / `Shift+Enter` 在命中之间前后跳，`Aa` 切换区分大小写，`Esc` 关闭搜索条。
+
+搜索条默认不显示，只有按键后才出现；它一次只属于一个会话——切换会话会清空查询、命中和高亮，搜索不会串到另一个对话里。
+
+## 快捷键
+
+- 桌面端：`Ctrl+F` 打开搜索条。
+- 网页端：`Ctrl+F` 同样可以打开，`Ctrl+Alt+F` 是可改绑的等价键位（浏览器自己占用了无修饰的 `Ctrl+F`）。
+- 命令已注册进快捷键目录，因此可以在 设置 → 快捷键 里改绑。
+
+桌面端的按键有两条通路。注册表持有 `Ctrl+F`，由主进程键盘桥转发；同时有一个 capture 阶段的监听器直接匹配手势，因为键盘桥只转发注册表已发布的键，而且某些输入路径送来的 `code` 是空串。250 毫秒的防抖保证一次物理按键不会把搜索条开关两次。
+
+## 搜索原理
+
+它遍历会话滚动容器（`[data-conversation-scroll]`）下的文本节点，跳过 `script/style/textarea/input/select/option/button`、`.sr-only`、`[data-text-interaction-exclude]` 以及 `aria-hidden` 的装饰性文字（KaTeX 的 `.katex-html` 除外），再用 CSS Custom Highlight API 标记命中——不修改会话 DOM，所以选中、复制和 React 状态都不受影响。落在折叠区块里的命中，会通过派发 `beforematch` 展开使用 `hidden="until-found"` 的折叠轮次和工具行，另有属性兜底。单次查询的命中上限是 4000 处。
+
+命中按最近优先排序：`rankByProximity` 依据命中框中心到视口中心的距离排序，位于未渲染子树里的文本（`getClientRects()` 为空）排在最后，因为它们既无法测量也无法滚动到。
+
+跳转到命中时是直接设置滚动容器自己的 `scrollTop` 来居中，而不是依赖 `scrollIntoView`：流式输出期间聊天区会把自己钉在尾部，所以跳转会逐帧重申目标位置，直到尾部跟随器释放（`[data-chat-following-tail]` 消失）或累计 20 帧为止。
+
+会话从未渲染过的文字（从未展开的折叠工具结果、滚出屏幕被虚拟化的行）搜不到；先滚动到附近再搜一次即可。
+
+## 复制
+
+复制用的是浏览器原生的光标选中——没有复制按钮，也没有复制快捷键。在正文任意位置拖选，然后按 Ctrl+C。注入的样式表给流式列（`[data-chat-flow]` 下的段落、列表项、代码、标题、表格单元格、引用、span）以及 `[data-conversation-content] *` 设置了 `user-select: text`，所以选区可以跨消息正文、代码块和工具输出。
+
+## 位置
+
+搜索条锚定在输入卡片上，而不是锚定在窗口上。`composerBox()` 取实际绘制的 `[data-composer-card]`（旧版本回退到 `[data-composer-seat]`），并选择 `bottom` 最大的候选，这样会话切换时残留挂载的旧会话根节点不会胜出。随后 `anchor()` 把搜索条放在卡片右缘左侧 `PANEL_SHIFT`（80 像素）处，并在搜索条底部与卡片顶部之间保持恒定的 `PANEL_GAP`（6 像素）。
+
+草稿变高时这个间距保持不变，所以更高的输入框会把搜索条一起往上带，而不是把它丢在原处——并且它永远不会返回一个把搜索条顶到窗口上方的位置。卡片上的 `ResizeObserver` 会重新锚定搜索条，并且每 400 毫秒重新绑定一次，以免 React 换掉卡片元素后观察器还指向已脱离的节点。
+
+计数（`n/total`）嵌在输入框内部、贴住其右侧，并设置 `pointer-events: none`，所以输入框可以变宽而不会把搜索条撑宽。搜索条本身保持窄小——11 像素字号、118×18 像素输入框（文字右侧留 32 像素给计数）、15×16 像素按钮——约为最初版本的三分之一。
+
+## 样式
+
+所有类名都带 `dsh-find-` 前缀；颜色取自 DSH 主题变量（`--dsw-alias-*`）并带兜底值，因此搜索条会跟随浅色与深色主题。
+
+---
+
 # DSH Find in session
 
 Ctrl+F opens a small search bar for the current session. Every hit in the transcript is highlighted; the current hit is a stronger orange and is scrolled to the middle of the view. Enter / Shift+Enter step through hits, `Aa` toggles case sensitivity, `Esc` closes the bar.
