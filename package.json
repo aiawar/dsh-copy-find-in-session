@@ -1,9 +1,19 @@
 {
-  "name": "@local/dsh-find-in-session",
+  "name": "dsh-copy-find-in-session",
   "version": "1.0.0",
-  "private": true,
   "type": "module",
-  "description": "Ctrl+F search inside a DSH session: nearest-first hits, jump to match, natively selectable transcript.",
+  "description": "Ctrl+F in a DSH session transcript with nearest-first hits, in-place highlight and natively selectable text for Ctrl+C. DSH 会话内 Ctrl+F 查找，命中就近跳转、原位高亮，正文可原生选中复制。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "find-in-page",
+    "ctrl-f",
+    "search",
+    "copy",
+    "transcript",
+    "session"
+  ],
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
@@ -16,8 +26,26 @@
     "cordis.patch.yml",
     "locale/*.json",
     "docs",
-    "icon.svg"
+    "icon.svg",
+    "LICENSE"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiawar/dsh-copy-find-in-session.git"
+  },
+  "homepage": "https://github.com/aiawar/dsh-copy-find-in-session",
+  "bugs": {
+    "url": "https://github.com/aiawar/dsh-copy-find-in-session/issues"
+  },
+  "author": "aiawar",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "dsh": {
     "bundle": { "patch": "./cordis.patch.yml" },
     "client": {

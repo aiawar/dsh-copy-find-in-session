@@ -3,7 +3,7 @@
 // anchor/size are exercised without a browser.
 import fs from 'node:fs';
 
-const source = fs.readFileSync('E:/BDT/dsh-find-in-session/client.js', 'utf8');
+const source = fs.readFileSync('E:/BDT/dsh-copy-find-in-session/client.js', 'utf8');
 
 /* ---------------------------------------------------------------- micro DOM */
 class Element {

@@ -1,3 +1,3 @@
 - insert:
-    - id: dsh-find-in-session
-      name: '@local/dsh-find-in-session'
+    - id: dsh-copy-find-in-session
+      name: 'dsh-copy-find-in-session'

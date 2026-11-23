@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-  id: '@local/dsh-find-in-session',
+  id: 'dsh-copy-find-in-session',
   factory(require) {
     const React = require('react');
     const h = React.createElement;
@@ -389,15 +389,15 @@ window.__ModuleLoader__.load({
           style.textContent = styles;
           document.head.append(style);
           return () => style.remove();
-        }, 'dsh-find-in-session: styles');
+        }, 'dsh-copy-find-in-session: styles');
 
         ctx.effect(() => {
           installObserver();
           return () => uninstallObserver();
-        }, 'dsh-find-in-session: session watch');
+        }, 'dsh-copy-find-in-session: session watch');
 
         ctx.slots.inject('shell.overlay', () => ctx.slots.register({
-          name: 'shell.overlay', id: 'dsh-find-in-session.palette', order: 900,
+          name: 'shell.overlay', id: 'dsh-copy-find-in-session.palette', order: 900,
         }, FindPalette));
 
         if (ctx.shortcuts !== undefined) {
@@ -415,7 +415,7 @@ window.__ModuleLoader__.load({
             regions: ['page', 'editable'],
             modals: [],
             resolve: () => ({ status: 'handled', run: toggle }),
-          }), 'dsh-find-in-session: find command');
+          }), 'dsh-copy-find-in-session: find command');
         }
 
         // Desktop forwards keys through the main-process bridge and the web shell reserves
@@ -433,7 +433,7 @@ window.__ModuleLoader__.load({
           };
           window.addEventListener('keydown', onKey, true);
           return () => window.removeEventListener('keydown', onKey, true);
-        }, 'dsh-find-in-session: find key listener');
+        }, 'dsh-copy-find-in-session: find key listener');
       },
     };
 

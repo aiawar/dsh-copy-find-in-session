@@ -5,8 +5,8 @@
     "zh": "DSH 会话内查找"
   },
   "description": {
-    "en": "Index source for the dsh-find-in-session plugin.",
-    "zh": "dsh-find-in-session 插件的索引源。"
+    "en": "Index source for the dsh-copy-find-in-session plugin.",
+    "zh": "dsh-copy-find-in-session 插件的索引源。"
   },
   "metadata": {
     "categories": {
@@ -36,7 +36,7 @@
   },
   "plugins": [
     {
-      "name": "dsh-find-in-session",
+      "name": "dsh-copy-find-in-session",
       "title": {
         "en": "Find in Session",
         "zh": "会话内查找"
@@ -46,11 +46,11 @@
         "zh": "DSH 会话内的 Ctrl+F 查找条：命中按距离最近优先、逐个跳转并保持滚动位置、按会话隔离、消息正文可原生选中复制。"
       },
       "author": "aiawar",
-      "homepage": "https://github.com/aiawar/dsh-find-in-session",
+      "homepage": "https://github.com/aiawar/dsh-copy-find-in-session",
       "repository": {
-        "url": "https://github.com/aiawar/dsh-find-in-session"
+        "url": "https://github.com/aiawar/dsh-copy-find-in-session"
       },
-      "icon": "https://cdn.jsdelivr.net/gh/aiawar/dsh-find-in-session@main/icon.svg",
+      "icon": "https://cdn.jsdelivr.net/gh/aiawar/dsh-copy-find-in-session@main/icon.svg",
       "metadata": {
         "category": "session",
         "keywords": [
@@ -74,7 +74,7 @@
           "publishTimestamp": 1795398900,
           "source": {
             "type": "git",
-            "url": "https://github.com/aiawar/dsh-find-in-session",
+            "url": "https://github.com/aiawar/dsh-copy-find-in-session",
             "commit": "522a148a1ff0538530c6114967babe7fb8f878c6"
           }
         }

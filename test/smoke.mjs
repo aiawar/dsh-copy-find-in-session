@@ -2,7 +2,7 @@
 // verifying exports, shortcut registration, slot registration, and style injection.
 import fs from 'node:fs';
 
-const source = fs.readFileSync('E:/BDT/dsh-find-in-session/client.js', 'utf8');
+const source = fs.readFileSync('E:/BDT/dsh-copy-find-in-session/client.js', 'utf8');
 
 const stubReact = {
   createElement: (type, props, ...children) => ({ type, props, children }),
