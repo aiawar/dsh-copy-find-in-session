@@ -29,11 +29,13 @@ Ctrl+F search inside a DeepSeek Harness (DSH) session transcript. Hits are highl
 
 ## 安装 · Install
 
-从 npm 装：
+从 GitHub Release 装（当前唯一可直接安装的来源）：
 
 ```bash
-dsh plugin install dsh-copy-find-in-session
+dsh plugin install https://github.com/aiawar/dsh-copy-find-in-session/releases/download/v1.0.0/dsh-copy-find-in-session-1.0.0.tgz
 ```
+
+或让市场直接按 git commit 装，见下面的市场索引段。
 
 从市场装：订阅下面的索引源后，在 Discover 页搜索 `find in session`。
 
@@ -59,10 +61,10 @@ dsh plugin install dsh-copy-find-in-session
   name: "@deepseek-ai/dsh-plugin-market"
   config:
     indexes:
-      - https://cdn.jsdelivr.net/gh/aiawar/dsh-copy-find-in-session@v1.0.0/dsh-index.json
+      - https://cdn.jsdelivr.net/gh/aiawar/dsh-copy-find-in-session@8f7f1997a934299aea847583c5856f043c01558e/dsh-index.json
 ```
 
-钉在 `v1.0.0` 标签上是有意的：`@main` 走 CDN 缓存，推送后会滞后。索引只声明一个插件 `dsh-copy-find-in-session` 的 `1.0.0`，源指向 npm 包，Discover 页可直接安装；换版本时同步改 `versions` 数组与标签。
+地址钉在 40 位 commit `8f7f1997a934299aea847583c5856f043c01558e` 上是有意的：`@main` 与标签都会走 CDN 缓存，推送后仍返回旧内容（实测 `@main` 会滞后两个 commit）。索引声明一个插件 `dsh-copy-find-in-session` 的 `1.0.0`，源类型 `git` 并钉在同一 commit，Discover 页可浏览并安装。改动代码后同步更新 `versions[0].source.commit` 与订阅地址里的 commit。
 
 同时收录于两个社区目录：
 
